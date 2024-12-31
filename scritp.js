@@ -6,6 +6,7 @@ const form = document.querySelector("#form");
 const description = document.querySelector("#desc");
 const amount = document.querySelector("#amount");
 const category = document.querySelector("#category");
+const filterCategory = document.getElementById("filter-category");
 
 const localStorageTrans = JSON.parse(localStorage.getItem("trans"));
 let transactions = localStorage.getItem("trans") !== null ? localStorageTrans : [];
@@ -26,6 +27,9 @@ function loadTransactionDetails(transaction) {
  
 }
 
+
+
+
 function removeTrans(id) {
   if (confirm("Are you sure you want to delete Transcation?")) {
     transactions = transactions.filter((transaction) => transaction.id != id);
@@ -40,7 +44,7 @@ function removeTrans(id) {
 
 
   function updateAmount() {
-    const amounts = transactions.map((transaction) => transaction.amount);
+    
    
     
     const income = transactions.filter((transaction) => transaction.category === "Income").map((transaction) => transaction.amount);
@@ -76,7 +80,7 @@ function addTransaction(e) {
       
     };
     transactions.push(transaction);
-    loadTransactionDetails(transaction);
+    /*loadTransactionDetails(transaction);*/
     description.value = "";
     amount.value = "";
     category.value = "";
@@ -98,3 +102,22 @@ window.addEventListener("load", function () {
 function updateLocalStorage() {
   localStorage.setItem("trans", JSON.stringify(transactions));
 }
+
+filterCategory.addEventListener("change", (e) => {
+  const category = e.target.value;
+  
+  console.log(category);
+  if (category === "All") {
+    loadTransactionDetails(transactions);
+}
+if (category === "Expenses") {
+
+  const expenselist = transactions.filter((transaction) => transaction.category === "Expenses");
+  loadTransactionDetails(expenselist);
+}
+if (category === "Income") {
+  const Incomelist =transactions.filter((transaction) => transaction.category === "Income");
+  loadTransactionDetails(Incomelist);
+}
+
+  })
