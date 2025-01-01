@@ -36,7 +36,8 @@
 
           <div class="form-control">
             <label for="category">Category</label>
-            <input type="text" name="category" id="category" placeholder="category" />
+            <input type="text" name="category" id="category" placeholder="type Expenses or Income" />
+            
           </div>
           <button class="btn" type="submit">Add Transaction</button>
         </form>
@@ -45,33 +46,37 @@
         <h3>Transaction Details</h3>
         <ul class="trans" id="trans">
           <li class="exp">
-            Insurance
-            <span>-1500</span>
-            <button class="btn-del">x</button>
+            
           </li>
           <li class="inc">
-            Salary
-            <span>35000</span>
-            <button class="btn-del">x</button>
+           
           </li>
           <li class="exp">
-            Food
-            <span>-350</span>
-            <button class="btn-del">x</button>
+            
           </li>
         </ul>
 
-        <div class="filter">
-          <label for="filter-category">Filter by Category:</label>
-          <select id="filter-category">
-              <option value="All" id="All">All</option>
-              <option value="Expense" id ="Expense">Expense</option>
-              <option value="Income" id ="Income">Income</option>
-              
-          </select>
+        <div class="fliter">
+          <h7>Select the type of Category to display :</h7>
+          <ul id="my-form">
+            <li >
+              <input type="radio"  name="selector" value="All">
+              <label for="type-All">ALL</label>
+            </li>
+            <li>
+              <input type="radio"  name="selector" value="income">
+              <label for="type-income">Income</label>
+            </li>
+        
+            <li>
+              <input type="radio"  name="selector" value="expense">
+              <label for="type-expense">Expense</label>
+            </li>
+          </ul>
+        </div>
       </div>
      
     </div>
-    <script src="scritp.js"></script>
+    <script src="scritp1.js"></script>
   </body>
 </html>
