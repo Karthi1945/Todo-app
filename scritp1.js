@@ -137,7 +137,7 @@ function edittrans(id){
   
     const edit = transactions.find(expense => expense.id === id);
 
-    document.getElementById("desc").value = edit.name;
+    document.getElementById("desc").value = edit.desc;
     document.getElementById("amount").value = edit.amount;
     document.getElementById("category").value = edit.category;
    
